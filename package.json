@@ -1,0 +1,29 @@
+{
+  "name": "@blitzui/blitz-core",
+  "version": "1.0.0",
+  "description": "Tool for generating dynamic website content",
+  "main": "index.js",
+  "dependencies": {
+    "typescript": "^4.9.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isan26/blitz-core.git"
+  },
+  "keywords": [
+    "generator",
+    "react",
+    "website",
+    "json"
+  ],
+  "author": "isan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/isan26/blitz-core/issues"
+  },
+  "homepage": "https://github.com/isan26/blitz-core#readme"
+}
