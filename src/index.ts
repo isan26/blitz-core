@@ -12,4 +12,6 @@ function blitz(components: IComponentPool, behaviours: IBehaviourPool) {
     return (config: any[]) => page.setConfig(config).render();
 };
 
+
+export { IComponentPool, IBehaviourPool };
 export default blitz;
