@@ -1,6 +1,6 @@
 {
   "name": "@blitzui/core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tool for generating dynamic website content",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -16,6 +16,7 @@
   "peerDependencies": {
     "react": "^18.2.0"
   },
+  "dependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -34,5 +35,8 @@
   "bugs": {
     "url": "https://github.com/isan26/blitz-core/issues"
   },
-  "homepage": "https://github.com/isan26/blitz-core#readme"
+  "homepage": "https://github.com/isan26/blitz-core#readme",
+  "directories": {
+    "test": "test"
+  }
 }
