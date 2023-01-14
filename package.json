@@ -1,6 +1,6 @@
 {
-  "name": "@blitzui/blitz-core",
-  "version": "1.1.2",
+  "name": "@blitzui/core",
+  "version": "1.0.0",
   "description": "Tool for generating dynamic website content",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
