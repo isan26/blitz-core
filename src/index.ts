@@ -1,17 +1,17 @@
-import IComponentPool from "./Interfaces/IComponentPool";
-import IBehaviourPool from "./Interfaces/IBehaviourPool";
-import ComponentFactory from "./Classes/ComponentFactory";
-import BehaviourFactory from "./Classes/BehaviourFactory";
-import Page from "./Classes/Page";
+import ComponentFactory from "./ComponentFactory";
+import ActionFactory from "./ActionFactory";
+import Page from "./Page";
 
-function blitz(components: IComponentPool, behaviours: IBehaviourPool) {
+import { Component, ActionPool, ComponentPool } from "./types";
+
+function blitz(components: ComponentPool, actions: ActionPool) {
     const componentFactory = new ComponentFactory(components);
-    const behaviourFactory = new BehaviourFactory(behaviours);
+    const behaviourFactory = new ActionFactory(actions);
     const page = new Page(behaviourFactory, componentFactory);
 
-    return (config: any[]) => page.setConfig(config).render();
+    return (config: Component[]) => page.setConfig(config).render();
 };
 
 
-export { IComponentPool, IBehaviourPool };
+export { ActionPool, ComponentPool };
 export default blitz;
