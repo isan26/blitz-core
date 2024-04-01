@@ -4,7 +4,7 @@ import Page from "./Page";
 
 import { Component, ActionPool, ComponentPool } from "./types";
 
-function blitz(components: ComponentPool, actions: ActionPool) {
+function blitz(components: ComponentPool, actions: ActionPool = {}) {
     const componentFactory = new ComponentFactory(components);
     const behaviourFactory = new ActionFactory(actions);
     const page = new Page(behaviourFactory, componentFactory);
@@ -13,5 +13,5 @@ function blitz(components: ComponentPool, actions: ActionPool) {
 };
 
 
-export { ActionPool, ComponentPool };
+export type { ActionPool, ComponentPool };
 export default blitz;

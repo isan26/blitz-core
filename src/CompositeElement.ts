@@ -14,7 +14,6 @@ export default class CompositeElement implements IUIElement {
         const newProps = this.replaceActions(component.props);
         const children = component.children ? this.renderChildren(component) : [];
 
-
         return createElement(uiComponent, newProps, ...children);
     }
 
@@ -23,30 +22,22 @@ export default class CompositeElement implements IUIElement {
         const keys = Object.getOwnPropertyNames(props);
 
         keys.forEach(key => {
-            if (typeof props[key] !== 'object') {
-                newProps[key] = props[key];
+            if (typeof props[key] === 'object' && props[key]['action']) {
+                const action = this.actions.getAction(props[key]['action']);
+                if (!action) return;
+
+                const execute = props[key]['execute'];
+
+                const args = props[key]['args'];
+                newProps[key] = args ? () => action(...args) : action;
+
+                if (execute) {
+                    newProps[key] = newProps[key]();
+                }
                 return;
             }
 
-            if (Array.isArray(props[key])) {
-                newProps[key] = props[key].map((item: any) => this.replaceActions(item));
-                return;
-            }
-
-            if (!props[key]['action']) {
-                newProps[key] = this.replaceActions(props[key]);
-            }
-
-            const action = this.actions.getAction(props[key]['action']);
-            const execute = props[key]['execute'];
-
-            const args = props[key]['args'];
-            newProps[key] = args ? () => action(...args) : action;
-
-            if (execute) {
-                newProps[key] = newProps[key]();
-            }
-
+            newProps[key] = props[key];
         });
 
         return newProps;
