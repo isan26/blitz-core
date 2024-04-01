@@ -25,8 +25,6 @@ class ActionFactory implements IActionFactory {
     }
 
     private isAction(action: any): action is Action {
-        if (typeof action !== 'object') return false;
-
         if (typeof action === 'function') return true;
         if (action['action'] && typeof action['action'] === 'function') return true;
 
