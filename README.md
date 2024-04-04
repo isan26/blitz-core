@@ -60,11 +60,14 @@ const page = [ // Most be an array
 ]
 
 function App() {
-  const blitz = Blitz(components, actions)
+  const blitz = Blitz(components, actions);
+
+  // parentComponent is optional
+  const parentComponent = {component : "div" , props : {className : "parentComponent"}}
 
   return (
     <>
-      {blitz(page)}
+      {blitz(page, parentComponent)}
     </>
   )
 }

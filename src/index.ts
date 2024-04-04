@@ -1,6 +1,6 @@
 import ComponentFactory from "./ComponentFactory";
 import ActionFactory from "./ActionFactory";
-import Page from "./Page";
+import Page, { ParentConfig } from "./Page";
 
 import { Component, ActionPool, ComponentPool } from "./types";
 
@@ -9,7 +9,7 @@ function blitz(components: ComponentPool, actions: ActionPool = {}) {
     const behaviourFactory = new ActionFactory(actions);
     const page = new Page(behaviourFactory, componentFactory);
 
-    return (config: Component[]) => page.setConfig(config).render();
+    return (config: Component[], parentConfig?: ParentConfig) => page.setConfig(config, parentConfig).render();
 };
 
 
