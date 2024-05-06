@@ -22,7 +22,7 @@ export default class CompositeElement implements IUIElement {
         const keys = Object.getOwnPropertyNames(props);
 
         keys.forEach(key => {
-            if (typeof props[key] === 'object' && props[key]['action']) {
+            if (typeof props[key] === 'object' &&  props[key] && props[key]['action']) {
                 const action = this.actions.getAction(props[key]['action']);
                 if (!action) return;
 
